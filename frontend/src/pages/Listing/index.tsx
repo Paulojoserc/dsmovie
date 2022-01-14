@@ -31,7 +31,9 @@ function Listing() {
         });
     }, [pageNumber]);
 
-    
+    const handlePageChange = (newPageNymber : number)=>{
+        setPageNumber(newPageNymber);
+    }
     //FORMA ERRADA
    // axios.get(`${BASE_URL}/movies?size=12&page=1`).then(response => {
        // console.log(response.data);
@@ -39,7 +41,7 @@ function Listing() {
     return (
         <>
             
-            <Pagination />
+            <Pagination page={page} onChange={handlePageChange}/>
             <div className="container">
                 <div className="row">
                     {page.content.map(movie =>(
